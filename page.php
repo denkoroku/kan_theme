@@ -7,13 +7,13 @@
         
 <header class="site-header">
     <div class="container" id="">
-    <h1 class="school-logo-text float-left"><a href="#"><strong>Kannon</strong> Education</a></h1>
+    <h1 class="school-logo-text float-left"><a href="<?php echo site_url('') ?>"><strong>Kannon</strong> Education</a></h1>
     <span class="js-search-trigger site-header__search-trigger"><i class="fa fa-search" aria-hidden="true"></i></span>
     <i class="site-header__menu-trigger fa fa-bars" aria-hidden="true"></i>
     <div class="site-header__menu group">
         <nav class="main-navigation">
         <ul>
-            <li class="current-menu-item"><a href="#">About Us</a></li>
+            <li class="current-menu-item"><a href="<?php echo site_url('/about-us') ?>">About Us</a></li>
             <li><a href="#">Cards</a></li>
             <li><a href="#">Apps</a></li>
             <li><a href="#">Blog</a></li>
@@ -38,15 +38,33 @@
 
     <div class="container container--narrow page-section">
 
+<?php 
+    $theParent = wp_get_post_parent_id(get_the_ID());
+    if($theParent){ ?>
     <div class="metabox metabox--position-up metabox--with-home-link">
-    <p><a class="metabox__blog-home-link" href="#"><i class="fa fa-home" aria-hidden="true"></i> Back to About Us</a> <span class="metabox__main">Our History</span></p>
+    <p><a class="metabox__blog-home-link" href="<?php echo get_permalink($theParent); ?>">
+    <i class="fa fa-home" aria-hidden="true"></i>
+    Back to <?php echo get_the_title($theParent); ?></a>
+    <span class="metabox__main"><?php the_title();  ?></span></p>
     </div>
+    <?php }
+?>
+
     
     <div class="page-links">
         <h2 class="page-links__title"><a href="#">About Us</a></h2>
         <ul class="min-list">
-        <li class="current_page_item"><a href="#">Our History</a></li>
-        <li><a href="#">Our Values</a></li>
+            <?php 
+            if($theParent){
+                $findChildrenOf= $theParent;
+            } else {
+                $findChildrenOf= get_theID();
+            }
+            wp_list_pages(array(
+                'title_li' => NULL,
+                'child_of' => $findChildrenOf
+            ));
+            ?>
         </ul>
     </div>
 
