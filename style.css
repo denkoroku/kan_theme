@@ -2488,19 +2488,19 @@ body.admin-bar .search-overlay {
 }
 
 .page-links {
-  position: relative;
-  z-index: 1;
-  background-color: #FAF0CA;
-  margin: 0 0 40px 0;
+    position: relative;
+    z-index: 1;
+    background-color: #FAF0CA;
+    margin: 0 0 40px 0;
 }
 
 @media (min-width: 767px) {
 
-  .page-links {
+    .page-links {
     margin: 0 0 40px 20px;
     width: 300px;
     float: right;
-  }
+    }
 }
 
 .page-links__title {
