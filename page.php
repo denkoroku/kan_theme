@@ -12,12 +12,16 @@
     <i class="site-header__menu-trigger fa fa-bars" aria-hidden="true"></i>
     <div class="site-header__menu group">
         <nav class="main-navigation">
-        <ul>
+        <?php wp_nav_menu(array(
+            'theme_location'=>'headerMenuLocation'
+        ));?>
+        
+        <!-- <ul>
             <li class="current-menu-item"><a href="<?php echo site_url('/about-us') ?>">About Us</a></li>
             <li><a href="#">Cards</a></li>
             <li><a href="#">Apps</a></li>
             <li><a href="#">Blog</a></li>
-        </ul>
+        </ul> -->
         </nav>
         <div class="site-header__util">
         <span class="search-trigger js-search-trigger"><i class="fa fa-search" aria-hidden="true"></i></span>
