@@ -10,6 +10,8 @@ add_action('wp_enqueue_scripts','kannon_files');
 
 function kannon_features(){
     register_nav_menu( 'headerMenuLocation', 'Header Menu Location' );
+    register_nav_menu( 'footerLocationOne', 'Footer Menu One' );
+    register_nav_menu( 'footerLocationTwo', 'Footer Menu Two' );
     add_theme_support('title-tag');
 }
 add_action('after_setup_theme','kannon_features');
