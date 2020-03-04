@@ -1,7 +1,7 @@
 <?php
 
 function kannon_files(){
-
+    wp_enqueue_style('font-awesome', '//maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css');
     wp_enqueue_style('bootstrap','//maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css');
     wp_enqueue_style('kannon_main_styles', get_stylesheet_uri());
 
